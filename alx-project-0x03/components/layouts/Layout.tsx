@@ -1,13 +1,10 @@
-import { Children, ReactNode } from "react";
-import React from 'react'; // <--- Added React import for React.FC
-
+import { ReactNode } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
 interface LayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
-
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
