@@ -1,34 +1,52 @@
-import Button from "@/components/common/Button";
-import { useRouter } from "next/router";
+// pages/index.tsx (Based on your second screenshot)
 
-interface PageRouteProps {
-  pageRoute: string
-}
+import React from 'react';
+import Link from 'next/link'; // Import the Link component
+import Button from '../components/common/Button'; // Assuming correct path
 
 export default function Home() {
-  const router = useRouter()
-
-  // Imeperative routing with useRouter
-  const routeToNextPage  = ({ pageRoute }: PageRouteProps) => {
-    router.push(pageRoute, undefined, { shallow: false})
-  }
-
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center text-center">
-      {/* Welcome Message */}
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">
-        Welcome to Splash App!
-      </h1>
-      <p className="text-lg text-gray-600 mb-8">
-        Your one-stop platform for everything AI you need. Start exploring by
-        navigating to our features below.
-      </p>
-
+    // Assuming your overall structure includes Header/Layout here
+    <div className="p-8"> 
+      <h1>Welcome Home!</h1>
+      <p>Navigating to our features below.</p>
+      
       {/* Navigation Options */}
-      <div className="flex gap-6">
-        <Button action={() => routeToNextPage({ pageRoute: '/generate-text-ai' })} buttonLabel="Generate Text" buttonBackgroundColor="blue" />
-        <Button action={() => routeToNextPage({ pageRoute: '/text-to-image'})} buttonLabel="Text to Image" buttonBackgroundColor="green" />
-        <Button action={() => routeToNextPage({ pageRoute: '/counter-app'})} buttonLabel="Contact us" buttonBackgroundColor="orange" />
+      <div className="flex gap-6 mt-6">
+        
+        {/* Link 1: Generate Text */}
+        <Link href="/generate-text-ai" passHref legacyBehavior>
+          <Button 
+            size="medium" 
+            shape="rounded-md"
+            // Use the button component's standard styling props
+            className="bg-green-500 hover:bg-green-600"
+          >
+            Generate Text
+          </Button>
+        </Link>
+        
+        {/* Link 2: Text to Image */}
+        <Link href="/text-to-image" passHref legacyBehavior>
+          <Button 
+            size="medium" 
+            shape="rounded-md"
+            className="bg-blue-500 hover:bg-blue-600"
+          >
+            Text to Image
+          </Button>
+        </Link>
+        
+        {/* Link 3: Contact Us */}
+        <Link href="/counter-app" passHref legacyBehavior>
+          <Button 
+            size="medium" 
+            shape="rounded-md"
+            className="bg-red-500 hover:bg-red-600"
+          >
+            Contact us
+          </Button>
+        </Link>
       </div>
     </div>
   );
