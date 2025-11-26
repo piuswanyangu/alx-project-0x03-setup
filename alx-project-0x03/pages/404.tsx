@@ -1,3 +1,4 @@
+import '../app/globals.css'
 import Link from 'next/link';
 import { FaHome } from 'react-icons/fa'; 
 

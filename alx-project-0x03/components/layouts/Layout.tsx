@@ -1,5 +1,5 @@
 // components/layouts/Layout.tsx
-
+import '../../app/global.css'
 import React from "react";
 // 💡 Corrected Import: Import the type from the centralized file
 import { LayoutProps } from '../../interfaces'; 
